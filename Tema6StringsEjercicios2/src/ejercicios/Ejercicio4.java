@@ -1,25 +1,15 @@
 package ejercicios;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio4 {
 
 	public static void main(String[] args) {
 
-		// buscar condiciones de salida a bucles, crear otro bucle con salida igual a
-		// longitud-1, que es igual a cantidad palabras metidas en array, y hacer print
-		// del segundo array cuando todas las palabras esten introducidas en al
-		// alfabeticamente
+		String frase;// guardara la frase introducida por usuario
 
-		String frase;
-
-		String palabraMenorAlfabeticamente = "";
-
-		int valorAlfabetico;
-
-		String palabrasFrase[] = new String[0];
-
-		String palabrasFraseOrdenadas[];
+		String palabrasFrase[] = new String[0];// guardara las palabras que forman la frase del usuario
 
 		// creo escaner y lo nombro dogma
 		Scanner dogma = new Scanner(System.in);
@@ -30,21 +20,20 @@ public class Ejercicio4 {
 		// doy a palabra valor con escaner
 		frase = dogma.nextLine();
 
+		// guardo en el array palabrasFrase las cadenas que me va devolviendo el metodo
+		// split al usar la cadena " " como separador
 		palabrasFrase = frase.split(" ");
 
-		// lo siguiente dentro de bucle con condicion de excepcion de palabras iguales
-		// (devuelve 0)
+		// ordeno las cadenas dentro del array con el metodo sort de la clase arrays que
+		// me las ordenara alfabeticamente
+		Arrays.sort(palabrasFrase);
 
-		for (int i = 0; i < palabrasFrase.length; i++) {
-
-			valorAlfabetico = palabrasFrase[i].compareTo(palabrasFrase[i + 1]);
-
-			if (valorAlfabetico < 0) {
-				palabraMenorAlfabeticamente = palabrasFrase[i];
-			}
-
+		// recorro el array haciendo print en linea de la palabra y un espacio
+		for (String auxiliar : palabrasFrase) {
+			System.out.print(auxiliar + " ");
 		}
-
+		
+		//cierro escaner
 		dogma.close();
 	}
 
